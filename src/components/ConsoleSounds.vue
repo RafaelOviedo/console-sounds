@@ -159,19 +159,7 @@ export default {
   background: #fff;
 }
 
-@media (max-width: 500px) {
-  .consoleComponent {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(100deg, rgba(185,0,122,1) 0%, rgba(253,187,45,1) 100%);
-}
-
+@media (max-width: 768px) {
   .title {
     position: absolute;
     top: 8%;
@@ -180,6 +168,9 @@ export default {
 }
 
   .consoleBox {
+    position: absolute;
+    top: 25%;
+    left: 20%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -188,7 +179,6 @@ export default {
     height: 60%;
     border: 4px solid #fff;
     border-radius: 10px;
-    margin-bottom: 55px;
 }
 
   .consoleButtons {
