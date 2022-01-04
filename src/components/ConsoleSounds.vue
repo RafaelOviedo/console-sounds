@@ -2,22 +2,22 @@
   <div class="consoleComponent">
     <h1 class="title">Console Sounds</h1>
     <div class="consoleBox">
-      <button class="consoleButtons" @keydown="playSound($event)">
+      <button class="consoleButtons" @keydown="playSound($event)" @click="playApplause">
         Q
         <audio ref="audioApplause" :src="applause"></audio>
       </button>
 
-      <button class="consoleButtons" @keydown="playSound($event)">
+      <button class="consoleButtons" @keydown="playSound($event)" @click="playHorn">
         W
         <audio ref="audioHorn" :src="horn"></audio>
       </button>
 
-      <button class="consoleButtons" @keydown="playSound($event)">
+      <button class="consoleButtons" @keydown="playSound($event)" @click="playGunShot">
         E
         <audio ref="audioGunShot" :src="gunShot"></audio>
       </button>
 
-      <button class="consoleButtons" @keydown="playSound($event)">
+      <button class="consoleButtons" @keydown="playSound($event)" @click="playLaserShot">
         R
         <audio ref="audioLaserShot" :src="laserShot"></audio>
       </button>
@@ -96,7 +96,19 @@ export default {
         this.$refs.audioHorn.play();
         break;
       }
-    }
+    },
+    playApplause() {
+      this.$refs.audioApplause.play();
+    },
+    playHorn() {
+      this.$refs.audioHorn.play();
+    },
+    playGunShot() {
+      this.$refs.audioGunShot.play();
+    },
+    playLaserShot() {
+      this.$refs.audioLaserShot.play();
+    },
   }
 }
 </script>
@@ -145,5 +157,49 @@ export default {
 
 .pressed:active {
   background: #fff;
+}
+
+@media (max-width: 500px) {
+  .consoleComponent {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(100deg, rgba(185,0,122,1) 0%, rgba(253,187,45,1) 100%);
+}
+
+  .title {
+    position: absolute;
+    top: 8%;
+    font-size: 40px;
+    color: #fff;
+}
+
+  .consoleBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 60%;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    margin-bottom: 55px;
+}
+
+  .consoleButtons {
+    width: 40%;
+    height: 20%;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+}
 }
 </style>
